@@ -20,20 +20,19 @@ begin
   photos.each do |photo| 
     begin
   		get_string = photo.content.src
-  		puts "processing " << photo.id
- 		
+  		puts "processing " << photo.id 		
     rescue Exception=>e 
       puts photo.id << "  **ERROR**"
       puts e
+    end
 
-      Dir.chdir(dir)
+    Dir.chdir(dir)
 			open(get_string	) {|f|
    				File.open(photo.title, "wb") do |file|
     			file.puts f.read
    				end
 			} 	 
 			puts "======================================"
-		end
 end
 
 
